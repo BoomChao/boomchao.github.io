@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://BoomChao.github.io.git/posts/my-first-post/</loc>
+    <loc>https://BoomChao.github.io/posts/my-first-post/</loc>
     <lastmod>2024-11-13T21:35:29+08:00</lastmod>
   </url><url>
-    <loc>https://BoomChao.github.io.git/</loc>
+    <loc>https://BoomChao.github.io/</loc>
     <lastmod>2024-11-13T21:35:29+08:00</lastmod>
   </url><url>
-    <loc>https://BoomChao.github.io.git/posts/</loc>
+    <loc>https://BoomChao.github.io/posts/</loc>
     <lastmod>2024-11-13T21:35:29+08:00</lastmod>
   </url><url>
-    <loc>https://BoomChao.github.io.git/categories/</loc>
+    <loc>https://BoomChao.github.io/categories/</loc>
   </url><url>
-    <loc>https://BoomChao.github.io.git/tags/</loc>
+    <loc>https://BoomChao.github.io/tags/</loc>
   </url>
 </urlset>
