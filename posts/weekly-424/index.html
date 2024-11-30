@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Leetcode 周赛 424 | BoomChao Site</title>
 <meta name="keywords" content="">
-<meta name="description" content="第一题：https://leetcode.com/problems/make-array-elements-equal-to-zero/
+<meta name="description" content="第一题:Make Array Elements Equal to Zero
 解析：
 首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差&lt;=1
 比如，下面这个有效数组
@@ -31,7 +31,7 @@ int countValidSelections(vector&lt;int&gt;&amp; nums) {
     }
     return res;
 }
-第二题：https://leetcode.com/problems/zero-array-transformation-i/description/
+第二题
 解析：
 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可
 比如">
@@ -146,7 +146,7 @@ int countValidSelections(vector&lt;int&gt;&amp; nums) {
 
 </div>
   </header> 
-  <div class="post-content"><h3 id="第一题httpsleetcodecomproblemsmake-array-elements-equal-to-zero">第一题：https://leetcode.com/problems/make-array-elements-equal-to-zero/<a hidden class="anchor" aria-hidden="true" href="#第一题httpsleetcodecomproblemsmake-array-elements-equal-to-zero">#</a></h3>
+  <div class="post-content"><h3 id="第一题make-array-elements-equal-to-zerohttpsleetcodecomproblemsmake-array-elements-equal-to-zero">第一题:<a href="https://leetcode.com/problems/make-array-elements-equal-to-zero/">Make Array Elements Equal to Zero</a><a hidden class="anchor" aria-hidden="true" href="#第一题make-array-elements-equal-to-zerohttpsleetcodecomproblemsmake-array-elements-equal-to-zero">#</a></h3>
 <p>解析：
 首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差&lt;=1
 比如，下面这个有效数组</p>
@@ -170,7 +170,7 @@ leftSum = 3, rightSum = 3
     }
     return res;
 }
-</code></pre><h3 id="第二题httpsleetcodecomproblemszero-array-transformation-idescription">第二题：https://leetcode.com/problems/zero-array-transformation-i/description/<a hidden class="anchor" aria-hidden="true" href="#第二题httpsleetcodecomproblemszero-array-transformation-idescription">#</a></h3>
+</code></pre><h3 id="第二题httpsleetcodecomproblemszero-array-transformation-idescription"><a href="https://leetcode.com/problems/zero-array-transformation-i/description/">第二题</a><a hidden class="anchor" aria-hidden="true" href="#第二题httpsleetcodecomproblemszero-array-transformation-idescription">#</a></h3>
 <p>解析：
 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可
 比如</p>
@@ -195,7 +195,7 @@ query = [0,2] ==&gt;  [1,2,2,1]
     }
     return true;
 }
-</code></pre><h3 id="第三题httpsleetcodecomproblemszero-array-transformation-ii">第三题：https://leetcode.com/problems/zero-array-transformation-ii/<a hidden class="anchor" aria-hidden="true" href="#第三题httpsleetcodecomproblemszero-array-transformation-ii">#</a></h3>
+</code></pre><h3 id="第三题httpsleetcodecomproblemszero-array-transformation-ii"><a href="https://leetcode.com/problems/zero-array-transformation-ii/">第三题</a><a hidden class="anchor" aria-hidden="true" href="#第三题httpsleetcodecomproblemszero-array-transformation-ii">#</a></h3>
 <p>上面第二题的升级版本，这里query范围内降低的数值最大不能超过给定的值，要求返回使得数组变成 Zero-Array 所需操作的最小次数
 解析：
 还是按照上面的思路，这里需要遍历每个query参数来判断依次判断与nums[i]的差是多少
