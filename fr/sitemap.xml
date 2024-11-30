@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://BoomChao.github.io/fr/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://BoomChao.github.io/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://BoomChao.github.io/fr/archives/"
+                />
+  </url><url>
     <loc>https://BoomChao.github.io/fr/frcategories/</loc>
   </url><url>
     <loc>https://BoomChao.github.io/fr/frseries/</loc>
@@ -23,6 +35,18 @@
                 rel="alternate"
                 hreflang="fr"
                 href="https://BoomChao.github.io/fr/"
+                />
+  </url><url>
+    <loc>https://BoomChao.github.io/fr/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://BoomChao.github.io/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://BoomChao.github.io/fr/search/"
                 />
   </url>
 </urlset>

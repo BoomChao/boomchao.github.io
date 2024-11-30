@@ -26,7 +26,31 @@
     <loc>https://BoomChao.github.io/posts/</loc>
     <lastmod>2024-11-30T20:43:12+08:00</lastmod>
   </url><url>
+    <loc>https://BoomChao.github.io/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://BoomChao.github.io/fr/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://BoomChao.github.io/archives/"
+                />
+  </url><url>
     <loc>https://BoomChao.github.io/categories/</loc>
+  </url><url>
+    <loc>https://BoomChao.github.io/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://BoomChao.github.io/fr/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://BoomChao.github.io/search/"
+                />
   </url><url>
     <loc>https://BoomChao.github.io/series/</loc>
   </url><url>
