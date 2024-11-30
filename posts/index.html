@@ -5,10 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Posts | BoomChao Site</title>
+<title>Posts | BoomChao Site&#39;</title>
 <meta name="keywords" content="">
-<meta name="description" content="Posts - BoomChao Site">
-<meta name="author" content="">
+<meta name="description" content="Posts - BoomChao Site&#39;">
+<meta name="author" content="Theme PaperMod">
 <link rel="canonical" href="https://BoomChao.github.io/posts/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://BoomChao.github.io/favicon.ico">
@@ -57,13 +57,16 @@
 
     </style>
 </noscript><meta property="og:url" content="https://BoomChao.github.io/posts/">
-  <meta property="og:site_name" content="BoomChao Site">
+  <meta property="og:site_name" content="BoomChao Site&#39;">
   <meta property="og:title" content="Posts">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod">
+  <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+      <meta property="og:image" content="https://BoomChao.github.io/images/papermod-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://BoomChao.github.io/images/papermod-cover.png">
 <meta name="twitter:title" content="Posts">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod">
 
 
 <script type="application/ld+json">
@@ -97,7 +100,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://BoomChao.github.io/" accesskey="h" title="BoomChao Site (Alt + H)">BoomChao Site</a>
+            <a href="https://BoomChao.github.io/" accesskey="h" title="BoomChao Site&#39; (Alt + H)">BoomChao Site&#39;</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -119,16 +122,60 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://BoomChao.github.io/fr/" title="French"
+                            aria-label=":fr:">🇫🇷</a>
+                    </li>
+                    <li>
+                        <a href="https://BoomChao.github.io/fa/" title="Fa"
+                            aria-label="Fa">Fa</a>
+                    </li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="https://BoomChao.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://BoomChao.github.io/search/" title="Search">
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://BoomChao.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/adityatelange/hugo-PaperMod/wiki/" title="WiKi">
+                    <span>WiKi</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header">
+<header class="page-header"><div class="breadcrumbs"><a href="https://BoomChao.github.io/">Home</a></div>
   <h1>
     Posts
+    <a href="/posts/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
   </h1>
 </header>
 
@@ -144,13 +191,13 @@
 int countValidSelections(vector&lt;int&gt;&amp; nums) { std::vector&lt;int&gt; ps(nums.size() &#43; 1); // 高级写法：计算向量和 partial_sum(nums.begin(), nums.end(), ps.begin() &#43; 1); // 后撤一位,这样i元素之前所有的元素和就是ps[i] int res = 0; for(int i = 0; i &lt; nums.size(); i&#43;&#43;) { if(nums[i] == 0) { if(ps.back() == 2 * ps[i]) res &#43;= 2; // 相等则左右两个方向移动均可 else if(abs(ps.back() - 2 * ps[i]) == 1) res &#43;= 1; // 相差一则只能一个方向移动 } } return res; } 第二题: Zero Array Transformation I 解析： 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可 比如
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-11-30 20:43:12 +0800 CST'>November 30, 2024</span></footer>
+  <footer class="entry-footer"><span title='2024-11-30 20:43:12 +0800 CST'>November 30, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to Leetcode 周赛 424" href="https://BoomChao.github.io/posts/weekly-424/"></a>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="https://BoomChao.github.io/">BoomChao Site</a></span> · 
+        <span>&copy; 2024 <a href="https://BoomChao.github.io/">BoomChao Site&#39;</a></span> · 
 
     <span>
         Powered by

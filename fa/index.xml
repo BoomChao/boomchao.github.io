@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Categories on BoomChao Site&#39;</title>
-    <link>https://BoomChao.github.io/categories/</link>
-    <description>Recent content in Categories on BoomChao Site&#39;</description>
+    <title>PaperMod RTL</title>
+    <link>https://BoomChao.github.io/fa/</link>
+    <description>Recent content on PaperMod RTL</description>
     <image>
-      <title>BoomChao Site&#39;</title>
+      <title>PaperMod RTL</title>
       <url>https://BoomChao.github.io/images/papermod-cover.png</url>
       <link>https://BoomChao.github.io/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.138.0</generator>
-    <language>en</language>
-    <atom:link href="https://BoomChao.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>fa</language>
+    <atom:link href="https://BoomChao.github.io/fa/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
