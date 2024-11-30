@@ -125,6 +125,22 @@
     </nav>
 </header>
 <main class="main"> 
+
+<article class="first-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Leetcode 周赛 424
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>第一题: Make Array Elements Equal to Zero 解析： 首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差&lt;=1 比如，下面这个有效数组
+[1,0,2,0,3] index = 3 leftSum = 3, rightSum = 3 所以是有效数组,而下面这个数组
+[2,3,4,0,4,1,0] 无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组 答案如下：时间复杂度 O(n)
+int countValidSelections(vector&lt;int&gt;&amp; nums) { std::vector&lt;int&gt; ps(nums.size() &#43; 1); // 高级写法：计算向量和 partial_sum(nums.begin(), nums.end(), ps.begin() &#43; 1); // 后撤一位,这样i元素之前所有的元素和就是ps[i] int res = 0; for(int i = 0; i &lt; nums.size(); i&#43;&#43;) { if(nums[i] == 0) { if(ps.back() == 2 * ps[i]) res &#43;= 2; // 相等则左右两个方向移动均可 else if(abs(ps.back() - 2 * ps[i]) == 1) res &#43;= 1; // 相差一则只能一个方向移动 } } return res; } 第二题: Zero Array Transformation I 解析： 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可 比如
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-11-30 20:43:12 +0800 CST'>November 30, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Leetcode 周赛 424" href="https://BoomChao.github.io/posts/weekly-424/"></a>
+</article>
     </main>
     
 <footer class="footer">
