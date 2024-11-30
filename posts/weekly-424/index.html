@@ -27,6 +27,23 @@ leftSum = 3, rightSum = 3
 [2,3,4,0,4,1,0]
 无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组
 答案如下：时间复杂度 O(n)
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+
+
 int countValidSelections(vector&lt;int&gt;&amp; nums) {
     std::vector&lt;int&gt; ps(nums.size() &#43; 1);
     // 高级写法：计算向量和
@@ -40,6 +57,8 @@ int countValidSelections(vector&lt;int&gt;&amp; nums) {
     }
     return res;
 }
+
+
 第二题: Zero Array Transformation I
 解析：
 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可
@@ -97,7 +116,7 @@ int countValidSelections(vector&lt;int&gt;&amp; nums) {
   <meta property="og:description" content="第一题: Make Array Elements Equal to Zero 解析： 首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差&lt;=1 比如，下面这个有效数组
 1 2 3 [1,0,2,0,3] index = 3 leftSum = 3, rightSum = 3 所以是有效数组,而下面这个数组
 [2,3,4,0,4,1,0] 无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组 答案如下：时间复杂度 O(n)
-int countValidSelections(vector&lt;int&gt;&amp; nums) { std::vector&lt;int&gt; ps(nums.size() &#43; 1); // 高级写法：计算向量和 partial_sum(nums.begin(), nums.end(), ps.begin() &#43; 1); // 后撤一位,这样i元素之前所有的元素和就是ps[i] int res = 0; for(int i = 0; i &lt; nums.size(); i&#43;&#43;) { if(nums[i] == 0) { if(ps.back() == 2 * ps[i]) res &#43;= 2; // 相等则左右两个方向移动均可 else if(abs(ps.back() - 2 * ps[i]) == 1) res &#43;= 1; // 相差一则只能一个方向移动 } } return res; } 第二题: Zero Array Transformation I 解析： 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可 比如">
+1 2 3 4 5 6 7 8 9 10 11 12 13 int countValidSelections(vector&lt;int&gt;&amp; nums) { std::vector&lt;int&gt; ps(nums.size() &#43; 1); // 高级写法：计算向量和 partial_sum(nums.begin(), nums.end(), ps.begin() &#43; 1); // 后撤一位,这样i元素之前所有的元素和就是ps[i] int res = 0; for(int i = 0; i &lt; nums.size(); i&#43;&#43;) { if(nums[i] == 0) { if(ps.back() == 2 * ps[i]) res &#43;= 2; // 相等则左右两个方向移动均可 else if(abs(ps.back() - 2 * ps[i]) == 1) res &#43;= 1; // 相差一则只能一个方向移动 } } return res; } 第二题: Zero Array Transformation I 解析： 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可 比如">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -127,6 +146,23 @@ leftSum = 3, rightSum = 3
 [2,3,4,0,4,1,0]
 无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组
 答案如下：时间复杂度 O(n)
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+
+
 int countValidSelections(vector&lt;int&gt;&amp; nums) {
     std::vector&lt;int&gt; ps(nums.size() &#43; 1);
     // 高级写法：计算向量和
@@ -140,6 +176,8 @@ int countValidSelections(vector&lt;int&gt;&amp; nums) {
     }
     return res;
 }
+
+
 第二题: Zero Array Transformation I
 解析：
 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可
@@ -172,12 +210,12 @@ int countValidSelections(vector&lt;int&gt;&amp; nums) {
   "@type": "BlogPosting",
   "headline": "Leetcode 周赛 424",
   "name": "Leetcode 周赛 424",
-  "description": "第一题: Make Array Elements Equal to Zero 解析： 首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差\u0026lt;=1 比如，下面这个有效数组\n1 2 3 [1,0,2,0,3] index = 3 leftSum = 3, rightSum = 3 所以是有效数组,而下面这个数组\n[2,3,4,0,4,1,0] 无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组 答案如下：时间复杂度 O(n)\nint countValidSelections(vector\u0026lt;int\u0026gt;\u0026amp; nums) { std::vector\u0026lt;int\u0026gt; ps(nums.size() + 1); // 高级写法：计算向量和 partial_sum(nums.begin(), nums.end(), ps.begin() + 1); // 后撤一位,这样i元素之前所有的元素和就是ps[i] int res = 0; for(int i = 0; i \u0026lt; nums.size(); i++) { if(nums[i] == 0) { if(ps.back() == 2 * ps[i]) res += 2; // 相等则左右两个方向移动均可 else if(abs(ps.back() - 2 * ps[i]) == 1) res += 1; // 相差一则只能一个方向移动 } } return res; } 第二题: Zero Array Transformation I 解析： 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可 比如\n",
+  "description": "第一题: Make Array Elements Equal to Zero 解析： 首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差\u0026lt;=1 比如，下面这个有效数组\n1 2 3 [1,0,2,0,3] index = 3 leftSum = 3, rightSum = 3 所以是有效数组,而下面这个数组\n[2,3,4,0,4,1,0] 无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组 答案如下：时间复杂度 O(n)\n1 2 3 4 5 6 7 8 9 10 11 12 13 int countValidSelections(vector\u0026lt;int\u0026gt;\u0026amp; nums) { std::vector\u0026lt;int\u0026gt; ps(nums.size() + 1); // 高级写法：计算向量和 partial_sum(nums.begin(), nums.end(), ps.begin() + 1); // 后撤一位,这样i元素之前所有的元素和就是ps[i] int res = 0; for(int i = 0; i \u0026lt; nums.size(); i++) { if(nums[i] == 0) { if(ps.back() == 2 * ps[i]) res += 2; // 相等则左右两个方向移动均可 else if(abs(ps.back() - 2 * ps[i]) == 1) res += 1; // 相差一则只能一个方向移动 } } return res; } 第二题: Zero Array Transformation I 解析： 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可 比如\n",
   "keywords": [
     
   ],
-  "articleBody": "第一题: Make Array Elements Equal to Zero 解析： 首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差\u003c=1 比如，下面这个有效数组\n1 2 3 [1,0,2,0,3] index = 3 leftSum = 3, rightSum = 3 所以是有效数组,而下面这个数组\n[2,3,4,0,4,1,0] 无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组 答案如下：时间复杂度 O(n)\nint countValidSelections(vector\u0026 nums) { std::vector ps(nums.size() + 1); // 高级写法：计算向量和 partial_sum(nums.begin(), nums.end(), ps.begin() + 1); // 后撤一位,这样i元素之前所有的元素和就是ps[i] int res = 0; for(int i = 0; i \u003c nums.size(); i++) { if(nums[i] == 0) { if(ps.back() == 2 * ps[i]) res += 2; // 相等则左右两个方向移动均可 else if(abs(ps.back() - 2 * ps[i]) == 1) res += 1; // 相差一则只能一个方向移动 } } return res; } 第二题: Zero Array Transformation I 解析： 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可 比如\nnums = [4,3,2,1], queries = [[1,3],[0,2]] 则刚开始是 [0,0,0,0] query = [1,3] ==\u003e [0,1,1,1] query = [0,2] ==\u003e [1,2,2,1] 明显不相等，所以不能构成 Zero Array 答案如下：时间复杂度O(n)\nbool isZeroArray(vector\u0026 nums, vector",
-  "wordCount" : "273",
+  "articleBody": "第一题: Make Array Elements Equal to Zero 解析： 首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差\u003c=1 比如，下面这个有效数组\n1 2 3 [1,0,2,0,3] index = 3 leftSum = 3, rightSum = 3 所以是有效数组,而下面这个数组\n[2,3,4,0,4,1,0] 无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组 答案如下：时间复杂度 O(n)\n1 2 3 4 5 6 7 8 9 10 11 12 13 int countValidSelections(vector\u003cint\u003e\u0026 nums) { std::vector\u003cint\u003e ps(nums.size() + 1); // 高级写法：计算向量和 partial_sum(nums.begin(), nums.end(), ps.begin() + 1); // 后撤一位,这样i元素之前所有的元素和就是ps[i] int res = 0; for(int i = 0; i \u003c nums.size(); i++) { if(nums[i] == 0) { if(ps.back() == 2 * ps[i]) res += 2; // 相等则左右两个方向移动均可 else if(abs(ps.back() - 2 * ps[i]) == 1) res += 1; // 相差一则只能一个方向移动 } } return res; } 第二题: Zero Array Transformation I 解析： 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可 比如\nnums = [4,3,2,1], queries = [[1,3],[0,2]] 则刚开始是 [0,0,0,0] query = [1,3] ==\u003e [0,1,1,1] query = [0,2] ==\u003e [1,2,2,1] 明显不相等，所以不能构成 Zero Array 答案如下：时间复杂度O(n)\nbool isZeroArray(vector\u0026 nums, vector",
+  "wordCount" : "286",
   "inLanguage": "en",
   "image": "https://BoomChao.github.io/images/papermod-cover.png","datePublished": "2024-11-30T20:43:12+08:00",
   "dateModified": "2024-11-30T20:43:12+08:00",
@@ -321,29 +359,48 @@ int countValidSelections(vector&lt;int&gt;&amp; nums) {
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Go" data-lang="Go"><span class="line"><span class="cl"><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">index</span> <span class="p">=</span> <span class="mi">3</span>
-</span></span><span class="line"><span class="cl"><span class="nx">leftSum</span> <span class="p">=</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">rightSum</span> <span class="p">=</span> <span class="mi">3</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>1,0,2,0,3<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">index</span> <span class="o">=</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="nv">leftSum</span> <span class="o">=</span> 3, <span class="nv">rightSum</span> <span class="o">=</span> <span class="m">3</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>所以是有效数组,而下面这个数组</p>
-<pre tabindex="0"><code>[2,3,4,0,4,1,0]
-无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组
-</code></pre><p>答案如下：时间复杂度 O(n)</p>
-<pre tabindex="0"><code>int countValidSelections(vector&lt;int&gt;&amp; nums) {
-    std::vector&lt;int&gt; ps(nums.size() + 1);
-    // 高级写法：计算向量和
-    partial_sum(nums.begin(), nums.end(), ps.begin() + 1);      // 后撤一位,这样i元素之前所有的元素和就是ps[i]
-    int res = 0;
-    for(int i = 0; i &lt; nums.size(); i++) {
-        if(nums[i] == 0) {
-            if(ps.back() == 2 * ps[i]) res += 2;                // 相等则左右两个方向移动均可
-            else if(abs(ps.back() - 2 * ps[i]) == 1) res += 1;  // 相差一则只能一个方向移动
-        }
-    }
-    return res;
-}
-</code></pre><h3 id="第二题-zero-array-transformation-ihttpsleetcodecomproblemszero-array-transformation-idescription">第二题: <a href="https://leetcode.com/problems/zero-array-transformation-i/description/">Zero Array Transformation I</a><a hidden class="anchor" aria-hidden="true" href="#第二题-zero-array-transformation-ihttpsleetcodecomproblemszero-array-transformation-idescription">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>2,3,4,0,4,1,0<span class="o">]</span>
+</span></span><span class="line"><span class="cl">无论选中哪个0元素，左右两边的和均不相等，所以肯定不是有效数组
+</span></span></code></pre></div><p>答案如下：时间复杂度 O(n)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Go" data-lang="Go"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">countValidSelections</span><span class="p">(</span><span class="nx">vector</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="o">&amp;</span> <span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">std</span><span class="p">::</span><span class="nx">vector</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="nf">ps</span><span class="p">(</span><span class="nx">nums</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 高级写法：计算向量和
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">partial_sum</span><span class="p">(</span><span class="nx">nums</span><span class="p">.</span><span class="nf">begin</span><span class="p">(),</span> <span class="nx">nums</span><span class="p">.</span><span class="nf">end</span><span class="p">(),</span> <span class="nx">ps</span><span class="p">.</span><span class="nf">begin</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>      <span class="c1">// 后撤一位,这样i元素之前所有的元素和就是ps[i]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="nx">res</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">nums</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="nx">ps</span><span class="p">.</span><span class="nf">back</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">ps</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="nx">res</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>                <span class="c1">// 相等则左右两个方向移动均可
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="nx">ps</span><span class="p">.</span><span class="nf">back</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">ps</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">res</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// 相差一则只能一个方向移动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="第二题-zero-array-transformation-ihttpsleetcodecomproblemszero-array-transformation-idescription">第二题: <a href="https://leetcode.com/problems/zero-array-transformation-i/description/">Zero Array Transformation I</a><a hidden class="anchor" aria-hidden="true" href="#第二题-zero-array-transformation-ihttpsleetcodecomproblemszero-array-transformation-idescription">#</a></h3>
 <p>解析：
 反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可
 比如</p>
