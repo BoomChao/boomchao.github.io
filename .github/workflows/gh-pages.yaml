@@ -43,7 +43,7 @@ jobs:
       - name: ssh-agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.jinchaozhu@tencent.com }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb \
