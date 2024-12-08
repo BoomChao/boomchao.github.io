@@ -1,10 +1,10 @@
-+++
+--
 date : '2024-11-30T20:43:12+08:00'
 draft : false
 title : 'Leetcode 周赛 424'
 tags : ["Leetcode"]
-+++
-
+categories: ["Algorithm", "Leetcode"]
+---
 
 ### 第一题: [Make Array Elements Equal to Zero](https://leetcode.com/problems/make-array-elements-equal-to-zero/)
 解析：
