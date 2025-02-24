@@ -85,4 +85,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
         with: 
-          path: ./public
+          artifact_name: artifact
