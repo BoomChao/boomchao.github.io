@@ -74,7 +74,6 @@ jobs:
           name: artifact
           path: ./public
   # Deployment job
-  
   deploy:
     environment:
       name: github-pages
