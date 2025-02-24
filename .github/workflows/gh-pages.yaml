@@ -66,8 +66,6 @@ jobs:
             --baseURL ${{ steps.pages.outputs.base_url }}
       - name: Upload artifact
         uses: actions/upload-artifact@v4
-        # with:
-        #   path: ./public
   # Deployment job
   deploy:
     environment:
