@@ -65,14 +65,9 @@ jobs:
             --buildDrafts --gc \
             --baseURL ${{ steps.pages.outputs.base_url }}
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          path: ./public
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: artifact
-          path: ./public
+        uses: actions/upload-pages-artifact@v3
+        # with:
+        #   path: ./public
   # Deployment job
   deploy:
     environment:
@@ -83,6 +78,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
-        with: 
-          artifact_name: artifact
+        uses: actions/deploy-pages@v4
