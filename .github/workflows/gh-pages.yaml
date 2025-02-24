@@ -60,7 +60,7 @@ jobs:
       - name: Update theme to Latest commit
         run: git submodule update --remote --merge
       - name: Build with Hugo
-        uses: actions/jekyll-build-pages@v1
+        # uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
