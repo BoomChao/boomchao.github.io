@@ -8,7 +8,7 @@ categories: ["Algorithm", "Leetcode"]
 
 ### 第一题: [Make Array Elements Equal to Zero](https://leetcode.com/problems/make-array-elements-equal-to-zero/)
 解析：
-首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差<=1
+首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差<=1  
 比如，下面这个有效数组
 ```bash 
 [1,0,2,0,3]
