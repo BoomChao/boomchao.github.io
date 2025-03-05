@@ -10,7 +10,7 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
-mainsections: ["posts", "leetcode"]
+mainsections: ["posts"]
 
 minify:
   disableXML: true
