@@ -10,7 +10,7 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
-mainsections: ["you-should-know", "leetcode"]
+mainsections: ["posts", "leetcode"]
 
 minify:
   disableXML: true
