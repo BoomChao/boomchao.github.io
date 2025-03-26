@@ -14,6 +14,7 @@ categories: ["draw"]
 
 ## excalidraw
 github地址: https://github.com/excalidraw/excalidraw
+一款手绘的白板
 
 ## mermaid
 github地址: https://github.com/mermaid-js/mermaid
