@@ -1,0 +1,19 @@
+---
+date : '2025-03-26T08:53:10+08:00'
+draft : true
+title : '程序员画图软件介绍'
+tags : ["画图"]
+categories: ["draw"]
+---
+
+人家说意图胜千言，平常工作中也会接触到各种各样的画图软件，这里就将自己使用最多的几款介绍下
+
+
+## 飞书画板
+因为平常记笔记什么的都是在飞书画板上，这应该是我用的最多也感觉最舒服的一款画图工具了
+
+## excalidraw
+github地址: https://github.com/excalidraw/excalidraw
+
+## mermaid
+github地址: https://github.com/mermaid-js/mermaid
