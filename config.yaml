@@ -37,10 +37,10 @@ languages:
           weight: 10
         - name: 标签
           url: tags/
-          weight: 10
+          weight: 20
         - name: 关于
           pageRef: about/
-          weight: 10
+          weight: 30
         # - name: WiKi
           # url: https://github.com/adityatelange/hugo-PaperMod/wiki/
 
