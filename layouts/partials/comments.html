@@ -14,16 +14,18 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         const giscusAttributes = {
-            "data-repo": "BoomChao/discussion",
-            "data-repo-id": "R_kgDOPr8TOA",
-            "data-category": "General",
-            "data-category-id": "DIC_kwDOPr8TOM4CvIrE",
-            "data-mapping": "pathname",
-            "data-strict": "0",
-            "data-reactions-enabled": "1",
-            "data-emit-metadata": "0",
-            "data-input-position": "bottom",
-            "data-theme": "preferred_color_scheme",
+            "src": "https://giscus.app/client.js",
+            "data-repo": "{{ .Site.Params.giscus.repo }}",
+            "data-repo-id": "{{ .Site.Params.giscus.repoId }}",
+            "data-category": "{{ .Site.Params.giscus.category }}",
+            "data-category-id": "{{ .Site.Params.giscus.categoryId }}",
+            "data-mapping": "{{ .Site.Params.giscus.mapping }}",
+            "data-strict": "{{ .Site.Params.giscus.strict }}",
+            "data-reactions-enabled": "{{ .Site.Params.giscus.reactionsEnabled }}",
+            "data-emit-metadata": "{{ .Site.Params.giscus.emitMetadata }}",
+            "data-input-position": "{{ .Site.Params.giscus.inputPosition }}",
+            "data-theme": getStoredTheme(),
+            "data-lang": "{{ .Site.Params.giscus.lang }}",
             "data-loading": "lazy",
             "crossorigin": "anonymous",
         };

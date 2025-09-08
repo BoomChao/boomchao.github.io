@@ -129,12 +129,24 @@ params:
   #         SiteVerificationTag: "XYZabc"
 
   assets:
-    # disableHLJS: true
-      favicon: "favicon.png"
-      favicon16x16: "favicon.png"
-      favicon32x32: "favicon.png"
-      apple_touch_icon: "favicon.png"
-      safari_pinned_tab: "favicon.png"
+    disableHLJS: true
+    favicon: "favicon.png"
+    favicon16x16: "favicon.png"
+    favicon32x32: "favicon.png"
+    apple_touch_icon: "favicon.png"
+    safari_pinned_tab: "favicon.png"
+
+  giscus:
+    repo: "BoomChao/discussion"
+    repoId: "R_kgDOPr8TOA"
+    category: "General"
+    categoryId: "DIC_kwDOPr8TOM4CvIrE"
+    mapping: "pathname"
+    strict: "0"
+    reactionsEnabled: "1"
+    emitMetadata: "0"
+    inputPosition: "bottom"
+    lang: "zh-CN"
 
   # cover:
   #     hidden: true # hide everywhere but not in structured data
