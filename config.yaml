@@ -18,7 +18,7 @@ minify:
 
 languages:
   en:
-    languageName: "English"
+    languageName: "中文"
     weight: 1
     taxonomies:
       category: categories
@@ -26,13 +26,13 @@ languages:
       series: series
     menu:
       main:
-        - name: Archive
+        - name: 归档
           url: archives
           weight: 5
-        - name: Search
+        - name: 搜索
           url: search/
           weight: 10
-        - name: Tags
+        - name: 标签
           url: tags/
           weight: 10
         # - name: WiKi
