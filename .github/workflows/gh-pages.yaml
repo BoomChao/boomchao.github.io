@@ -37,7 +37,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: ${{ github.event.inputs.hugoVersion || '0.138.0' }}
+      HUGO_VERSION: ${{ github.event.inputs.hugoVersion || '0.146.0' }}
     steps:
       - uses: actions/checkout@v4
       - name: ssh-agent
