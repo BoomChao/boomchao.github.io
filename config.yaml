@@ -138,9 +138,9 @@ params:
 
   giscus:
     repo: "boomchao/boomchao.github.io"
-    repoId: "R_kgDOPr8TOA"
+    repoId: "R_kgDONam-2g"
     category: "General"
-    categoryId: "DIC_kwDOPr8TOM4CvIrE"
+    categoryId: "DIC_kwDONam-2s4CvIsy"
     mapping: "pathname"
     strict: "0"
     reactionsEnabled: "1"
