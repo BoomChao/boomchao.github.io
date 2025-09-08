@@ -26,6 +26,9 @@ languages:
       series: series
     menu:
       main:
+        - name: 首页
+          pageRef: /
+          weight: 4
         - name: 归档
           url: archives
           weight: 5
@@ -34,6 +37,9 @@ languages:
           weight: 10
         - name: 标签
           url: tags/
+          weight: 10
+        - name: 关于
+          pageRef: about/
           weight: 10
         # - name: WiKi
           # url: https://github.com/adityatelange/hugo-PaperMod/wiki/
