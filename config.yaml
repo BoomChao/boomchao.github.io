@@ -148,6 +148,8 @@ params:
     emitMetadata: "0"
     inputPosition: "bottom"
     lang: "zh-CN"
+    lightTheme: "light"
+    darkTheme: "dark"
 
   # cover:
   #     hidden: true # hide everywhere but not in structured data
