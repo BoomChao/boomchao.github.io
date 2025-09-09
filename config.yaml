@@ -92,6 +92,8 @@ params:
   disableComments: false
   giscusTheme: preferred_color_scheme
 
+  busuanzi:
+      enable: true
 
   profileMode:
     enabled: false
