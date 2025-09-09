@@ -22,15 +22,16 @@
 
     <!-- busuanzi -->
     {{ if .Site.Params.busuanzi.enable -}}
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv">
-        Total site visits <span id="busuanzi_value_site_pv"></span> times
-    </span>
-    <span id="busuanzi_container_site_uv">
-        Total site visitors <span id="busuanzi_value_site_uv"></span> people
-    </span>
-    </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="busuanzi-footer">
+        <span id="busuanzi_container_site_pv">
+            Total site visits <span id="busuanzi_value_site_pv"></span> times
+        </span>
+        <span id="busuanzi_container_site_uv">
+            Total site visitors <span id="busuanzi_value_site_uv"></span> people
+        </span>
+        </div>
+    {{- end -}}
 
 </footer>
 {{- end }}
