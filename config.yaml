@@ -89,9 +89,10 @@ params:
   ShowToc: true
   # comments: false
   images: ["images/papermod-cover.png"]
-
   comments: true
   disableComments: false
+  giscusTheme: preferred_color_scheme
+
 
   profileMode:
     enabled: false
