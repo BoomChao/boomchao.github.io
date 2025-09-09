@@ -140,7 +140,7 @@ params:
   giscus:
     repo: "boomchao/boomchao.github.io"
     repoId: "R_kgDONam-2g"
-    category: "General"
+    category: "Announcements"
     categoryId: "DIC_kwDONam-2s4CvIsy"
     mapping: "pathname"
     strict: "0"
