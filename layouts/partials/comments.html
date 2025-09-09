@@ -1,49 +1,49 @@
-<div id="tw-comment"></div>
-<script>
-    // 默认是暗色，根目录下的配置中的主题默认也是暗色
-    const getStoredTheme = () => localStorage.getItem("pref-theme") === "light" ? "{{ .Site.Params.giscus.lightTheme }}" : "{{ .Site.Params.giscus.darkTheme }}";
-    const setGiscusTheme = () => {
-        const sendMessage = (message) => {
-            const iframe = document.querySelector('iframe.giscus-frame');
-            if (iframe) {
-                iframe.contentWindow.postMessage({giscus: message}, 'https://giscus.app');
-            }
-        }
-        sendMessage({setConfig: {theme: getStoredTheme()}})
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const giscusAttributes = {
-            "src": "https://giscus.app/client.js",
-            "data-repo": "{{ .Site.Params.giscus.repo }}",
-            "data-repo-id": "{{ .Site.Params.giscus.repoId }}",
-            "data-category": "{{ .Site.Params.giscus.category }}",
-            "data-category-id": "{{ .Site.Params.giscus.categoryId }}",
-            "data-mapping": "{{ .Site.Params.giscus.mapping }}",
-            "data-strict": "{{ .Site.Params.giscus.strict }}",
-            "data-reactions-enabled": "{{ .Site.Params.giscus.reactionsEnabled }}",
-            "data-emit-metadata": "{{ .Site.Params.giscus.emitMetadata }}",
-            "data-input-position": "{{ .Site.Params.giscus.inputPosition }}",
-            "data-theme": getStoredTheme(),
-            "data-lang": "{{ .Site.Params.giscus.lang }}",
-            "data-loading": "lazy",
-            "crossorigin": "anonymous",
-        };
-
-        // 动态创建 giscus script
-        const giscusScript = document.createElement("script");
-        Object.entries(giscusAttributes).forEach(
-                ([key, value]) => giscusScript.setAttribute(key, value));
-        document.querySelector("#tw-comment").appendChild(giscusScript);
-
-        // 页面主题变更后，变更 giscus 主题
-        const themeSwitcher = document.querySelector("#theme-toggle");
-        if (themeSwitcher) {
-            themeSwitcher.addEventListener("click", setGiscusTheme);
-        }
-        const themeFloatSwitcher = document.querySelector("#theme-toggle-float");
-        if (themeFloatSwitcher) {
-            themeFloatSwitcher.addEventListener("click", setGiscusTheme);
-        }
-    });
-</script>
+1<div id="tw-comment"></div>
+2<script>
+3    // 默认是暗色，根目录下的配置中的主题默认也是暗色
+4    const getStoredTheme = () => localStorage.getItem("pref-theme") === "light" ? "{{ .Site.Params.giscus.lightTheme }}" : "{{ .Site.Params.giscus.darkTheme }}";
+5    const setGiscusTheme = () => {
+6        const sendMessage = (message) => {
+7            const iframe = document.querySelector('iframe.giscus-frame');
+8            if (iframe) {
+9                iframe.contentWindow.postMessage({giscus: message}, 'https://giscus.app');
+10            }
+11        }
+12        sendMessage({setConfig: {theme: getStoredTheme()}})
+13    }
+14
+15    document.addEventListener("DOMContentLoaded", () => {
+16        const giscusAttributes = {
+17            "src": "https://giscus.app/client.js",
+18            "data-repo": "{{ .Site.Params.giscus.repo }}",
+19            "data-repo-id": "{{ .Site.Params.giscus.repoId }}",
+20            "data-category": "{{ .Site.Params.giscus.category }}",
+21            "data-category-id": "{{ .Site.Params.giscus.categoryId }}",
+22            "data-mapping": "{{ .Site.Params.giscus.mapping }}",
+23            "data-strict": "{{ .Site.Params.giscus.strict }}",
+24            "data-reactions-enabled": "{{ .Site.Params.giscus.reactionsEnabled }}",
+25            "data-emit-metadata": "{{ .Site.Params.giscus.emitMetadata }}",
+26            "data-input-position": "{{ .Site.Params.giscus.inputPosition }}",
+27            "data-theme": getStoredTheme(),
+28            "data-lang": "{{ .Site.Params.giscus.lang }}",
+29            "data-loading": "lazy",
+30            "crossorigin": "anonymous",
+31        };
+32
+33        // 动态创建 giscus script
+34        const giscusScript = document.createElement("script");
+35        Object.entries(giscusAttributes).forEach(
+36                ([key, value]) => giscusScript.setAttribute(key, value));
+37        document.querySelector("#tw-comment").appendChild(giscusScript);
+38
+39        // 页面主题变更后，变更 giscus 主题
+40        const themeSwitcher = document.querySelector("#theme-toggle");
+41        if (themeSwitcher) {
+42            themeSwitcher.addEventListener("click", setGiscusTheme);
+43        }
+44        const themeFloatSwitcher = document.querySelector("#theme-toggle-float");
+45        if (themeFloatSwitcher) {
+46            themeFloatSwitcher.addEventListener("click", setGiscusTheme);
+47        }
+48    });
+49</script>
