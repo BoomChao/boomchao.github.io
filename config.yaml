@@ -90,6 +90,9 @@ params:
   # comments: false
   images: ["images/papermod-cover.png"]
 
+  comments: true
+  disableComments: false
+
   profileMode:
     enabled: false
     title: PaperMod
@@ -137,19 +140,19 @@ params:
     apple_touch_icon: "favicon.png"
     safari_pinned_tab: "favicon.png"
 
-  giscus:
-    repo: "boomchao/boomchao.github.io"
-    repoId: "R_kgDONam-2g"
-    category: "Announcements"
-    categoryId: "DIC_kwDONam-2s4CvIsy"
-    mapping: "pathname"
-    strict: "0"
-    reactionsEnabled: "1"
-    emitMetadata: "0"
-    inputPosition: "bottom"
-    lang: "zh-CN"
-    lightTheme: "light"
-    darkTheme: "dark"
+  # giscus:
+  #   repo: "boomchao/boomchao.github.io"
+  #   repoId: "R_kgDONam-2g"
+  #   category: "Announcements"
+  #   categoryId: "DIC_kwDONam-2s4CvIsy"
+  #   mapping: "pathname"
+  #   strict: "0"
+  #   reactionsEnabled: "1"
+  #   emitMetadata: "0"
+  #   inputPosition: "bottom"
+  #   lang: "zh-CN"
+  #   lightTheme: "light"
+  #   darkTheme: "dark"
 
   # cover:
   #     hidden: true # hide everywhere but not in structured data
