@@ -15,24 +15,24 @@ Snipaste：https://www.snipaste.com/
 
 
 # 切屏软件
-AltTab:  https://alt-tab-macos.netlify.app/ 
-有了它，对于多开窗口的同学真的效率提升好多，再也不用鼠标移动到任务栏去找应用了！
+AltTab:  https://alt-tab-macos.netlify.app/   
+有了它，对于多开窗口的同学真的效率提升好多，再也不用鼠标移动到任务栏去找应用了！  
 自己配置多应用切换款快捷键以及活跃应用切换款快捷键
 
 # 粘贴板工具
-raycast: https://www.raycast.com/ 
-这个非常强大，其命令记录功能很好用
+raycast: https://www.raycast.com/   
+这个非常强大，其命令记录功能很好用  
 鼠标选中对应的功能 Ctrl+c 便可将内容复制到面贴板，配置快捷键唤起 raycast 直接选择粘贴板内容即可
 
 
 # 终端配置
-无理由推荐 zsh + oh-my-sh !
-1. 下载 Item2 https://iterm2.com/index.html 
-2. 安装 homebrewhttps://brew.sh/ 
-3. 安装zsh  以及 oh-my-zsh https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH 
-- 安装 zsh-autosuggestions，自动提示历史命令非常方便：https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md 
-- 安装命令缩写提示符 https://github.com/MichaelAquilina/zsh-you-should-use 
-在 .zshrc 里面配置下面这几款插件即可
+无理由推荐 zsh + oh-my-sh !  
+1. 下载 Item2 https://iterm2.com/index.html   
+2. 安装 homebrewhttps://brew.sh/   
+3. 安装zsh  以及 oh-my-zsh https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH   
+- 安装 zsh-autosuggestions，自动提示历史命令非常方便：https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md   
+- 安装命令缩写提示符 https://github.com/MichaelAquilina/zsh-you-should-use   
+在 .zshrc 里面配置下面这几款插件即可  
 ``` bash
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -41,7 +41,7 @@ raycast: https://www.raycast.com/
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git golang python zsh-autosuggestions aliases alias-finder zsh-you-should-use docker)  
 ``` 
-4. 安装命令搜索器 fzf https://github.com/junegunn/fzf 
+4. 安装命令搜索器 fzf https://github.com/junegunn/fzf   
 看看我的 shell 配置
 
 
