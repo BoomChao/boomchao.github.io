@@ -16,6 +16,11 @@ minify:
   disableXML: true
   # minifyOutput: true
 
+pagination:
+  disableAliases: false
+  pagerSize: 5
+  path: page
+
 languages:
   en:
     languageName: "中文"
