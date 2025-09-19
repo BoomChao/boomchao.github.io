@@ -44,13 +44,13 @@ categories: ["工具"]
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git golang python zsh-autosuggestions aliases alias-finder zsh-you-should-use docker)  
 ``` 
-4. 安装命令搜索器 fzf https://github.com/junegunn/fzf   
+4. 安装命令搜索器 [fzf](https://github.com/junegunn/fzf)   
 看看我的 shell 配置
 ![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/zsh.gif?raw=true)
 
 
 # 研发工具
-He3: https://he3.app/zh/  
+[He3](https://he3.app/zh/)  
 json format、 md5 加密、日期计算等这些，我相信没有 He3 处理不了的小事情，内置非常多的小工具提升效率  
 ![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/he3.png?raw=true)
 
@@ -102,9 +102,8 @@ WebApp --> User : Display Data
 ## 飞书画板
 因为平常记笔记什么的都是在飞书画板上，这应该是我用的最多也感觉最舒服的一款画图工具了
 
-## excalidraw
-github地址: https://github.com/excalidraw/excalidraw
-一款手绘的白板
+## [excalidraw](https://github.com/excalidraw/excalidraw)  
+一款手绘的白板,能绘制出很好看的字体
 
-## mermaid
-github地址: https://github.com/mermaid-js/mermaid
+## [mermaid](https://github.com/mermaid-js/mermaid)  
+
