@@ -50,11 +50,15 @@ plugins=(git golang python zsh-autosuggestions aliases alias-finder zsh-you-shou
 
 
 # 研发工具
-He3: https://he3.app/zh/ 
-json format、 md5 加密、日期计算等这些，我相信没有 He3 处理不了的小事情，内置非常多的小工具提升效率
+He3: https://he3.app/zh/  
+json format、 md5 加密、日期计算等这些，我相信没有 He3 处理不了的小事情，内置非常多的小工具提升效率  
 ![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/he3.png?raw=true)
 
 
+# 浏览器插件
+## 工作区区分
+
+## 广告拦截
 
 
 # 画图工具
