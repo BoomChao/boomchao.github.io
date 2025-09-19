@@ -31,19 +31,19 @@ languages:
       series: series
     menu:
       main:
-        - name: 首页
+        - name: 🏡 首页
           url: /
           weight: 4
-        - name: 归档
+        - name: 📈 归档
           url: archives
           weight: 5
-        - name: 搜索
+        - name: 🔍 搜索
           url: search/
           weight: 10
-        - name: 标签
+        - name: 🏷️ 标签
           url: tags/
           weight: 20
-        - name: 关于
+        - name: 🙋🏻‍♂️ 关于
           url: about/
           weight: 30
         # - name: WiKi
@@ -116,8 +116,8 @@ params:
   homeInfoParams:
     Title: "欢迎来到我的主站"
     Content: >
-      📖 主要用于记录我的一些学习心得以及工作中的一些感悟!   
-      👋 希望通过这个能交到更多有趣的热爱技术的小伙伴!
+      📖 主要用于记录我的一些学习心得以及工作中的一些感悟!   </br>
+      👋 希望通过这个能交到更多有趣的热爱技术的小伙伴!  </br>
 
   socialIcons:
     - name: github
