@@ -6,35 +6,35 @@ tags : ["Mac"]
 categories: ["工具"]
 ---
 # 动图工具
-licecap：https://www.cockos.com/licecap/  
+[licecap](https://www.cockos.com/licecap/)  
 应该没有比 licecap 更加傻瓜式的动图录制工具了吧！
 ![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/licecap.png?raw=true)
 
 # 截图软件
-Snipaste：https://www.snipaste.com/  
+[Snipaste](https://www.snipaste.com/)  
 支持截图，贴图等功能（贴图yyds👍）
 ![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/snipaste.gif?raw=true)
 
 
 # 切屏软件
-AltTab:  https://alt-tab-macos.netlify.app/   
+[AltTab](https://alt-tab-macos.netlify.app/)  
 有了它，对于多开窗口的同学真的效率提升好多，再也不用鼠标移动到任务栏去找应用了！  
 自己配置多应用切换款快捷键以及活跃应用切换款快捷键
 ![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/alttab.png?raw=true)
 
 # 粘贴板工具
-raycast: https://www.raycast.com/   
+[raycast](https://www.raycast.com/)  
 这个非常强大，其命令记录功能很好用  
 鼠标选中对应的功能 Ctrl+c 便可将内容复制到面贴板，配置快捷键唤起 raycast 直接选择粘贴板内容即可
 ![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/raycast.gif?raw=true)
 
 # 终端配置
 无理由推荐 zsh + oh-my-sh !  
-1. 下载 Item2 https://iterm2.com/index.html   
-2. 安装 homebrewhttps://brew.sh/   
-3. 安装zsh  以及 oh-my-zsh https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH   
-- 安装 zsh-autosuggestions，自动提示历史命令非常方便：https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md   
-- 安装命令缩写提示符 https://github.com/MichaelAquilina/zsh-you-should-use   
+1. 下载 [Item2](https://iterm2.com/index.html)   
+2. 安装 [homebrew](https://brew.sh/)   
+3. 安装zsh  以及 [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)   
+- 安装 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)，自动提示历史命令非常方便     
+- 安装命令缩写提示符 [you-should-use](https://github.com/MichaelAquilina/zsh-you-should-use)   
 在 .zshrc 里面配置下面这几款插件即可  
 ``` bash
 # Which plugins would you like to load?
