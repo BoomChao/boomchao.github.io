@@ -60,13 +60,43 @@ json format、 md5 加密、日期计算等这些，我相信没有 He3 处理�
 
 ## 广告拦截
 
+# vscode 插件
+让你的文件目录变的更加好看  
+
+拼写检查（建议安装：帮你避免代码单词拼错的低级错误！）   
+
+plantUML 画图工具  
+``` bash
+@startuml
+actor User
+participant "Web Application" as WebApp
+participant "Backend Service" as Backend
+database "Database" as DB
+
+User -> WebApp : Login
+WebApp -> Backend : Authenticate(User Credentials)
+Backend -> DB : Query User
+DB --> Backend : User Data
+Backend --> WebApp : Authentication Result
+WebApp --> User : Login Success
+
+User -> WebApp : Request Data
+WebApp -> Backend : Fetch Data
+Backend -> DB : Query Data
+DB --> Backend : Data
+Backend --> WebApp : Data
+WebApp --> User : Display Data
+@enduml
+```
+注意文件后缀为 .wsd 文件  
+
 
 # 画图工具
 人家说意图胜千言，平常工作中也会接触到各种各样的画图软件，这里就将自己使用最多的几款介绍下
 
-
 ## 飞书画板
 因为平常记笔记什么的都是在飞书画板上，这应该是我用的最多也感觉最舒服的一款画图工具了
+
 
 ## excalidraw
 github地址: https://github.com/excalidraw/excalidraw
