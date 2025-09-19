@@ -10,7 +10,7 @@ licecap：https://www.cockos.com/licecap/
 应该没有比 licecap 更加傻瓜式的动图录制工具了吧！
 
 # 截图软件
-Snipaste：https://www.snipaste.com/ 
+Snipaste：https://www.snipaste.com/  
 支持截图，贴图等功能（贴图yyds👍）
 
 
