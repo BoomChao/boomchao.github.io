@@ -8,22 +8,25 @@ categories: ["工具"]
 # 动图工具
 licecap：https://www.cockos.com/licecap/  
 应该没有比 licecap 更加傻瓜式的动图录制工具了吧！
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/licecap.png?raw=true)
 
 # 截图软件
 Snipaste：https://www.snipaste.com/  
 支持截图，贴图等功能（贴图yyds👍）
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/snipaste.gif?raw=true)
 
 
 # 切屏软件
 AltTab:  https://alt-tab-macos.netlify.app/   
 有了它，对于多开窗口的同学真的效率提升好多，再也不用鼠标移动到任务栏去找应用了！  
 自己配置多应用切换款快捷键以及活跃应用切换款快捷键
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/alttab.png?raw=true)
 
 # 粘贴板工具
 raycast: https://www.raycast.com/   
 这个非常强大，其命令记录功能很好用  
 鼠标选中对应的功能 Ctrl+c 便可将内容复制到面贴板，配置快捷键唤起 raycast 直接选择粘贴板内容即可
-
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/raycast.gif?raw=true)
 
 # 终端配置
 无理由推荐 zsh + oh-my-sh !  
@@ -43,12 +46,13 @@ plugins=(git golang python zsh-autosuggestions aliases alias-finder zsh-you-shou
 ``` 
 4. 安装命令搜索器 fzf https://github.com/junegunn/fzf   
 看看我的 shell 配置
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/zsh.gif?raw=true)
 
 
 # 研发工具
 He3: https://he3.app/zh/ 
 json format、 md5 加密、日期计算等这些，我相信没有 He3 处理不了的小事情，内置非常多的小工具提升效率
-
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/he3.png?raw=true)
 
 
 
