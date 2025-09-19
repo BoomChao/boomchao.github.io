@@ -6,7 +6,7 @@ tags : ["Mac"]
 categories: ["工具"]
 ---
 # 动图工具
-licecap：https://www.cockos.com/licecap/ 
+licecap：https://www.cockos.com/licecap/  
 应该没有比 licecap 更加傻瓜式的动图录制工具了吧！
 
 # 截图软件
