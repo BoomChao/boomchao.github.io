@@ -57,15 +57,20 @@ json format、 md5 加密、日期计算等这些，我相信没有 He3 处理�
 
 # 浏览器插件
 ## 工作区区分
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/workspace.png?raw=true)
 
 ## 广告拦截
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/ublock.png?raw=true)
 
 # vscode 插件
 让你的文件目录变的更加好看  
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/code_icon.png?raw=true)
 
 拼写检查（建议安装：帮你避免代码单词拼错的低级错误！）   
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/code_spell.png?raw=true)
 
 plantUML 画图工具  
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/plantUML.png?raw=true)
 ``` bash
 @startuml
 actor User
@@ -89,14 +94,13 @@ WebApp --> User : Display Data
 @enduml
 ```
 注意文件后缀为 .wsd 文件  
-
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/rd-tools/picture/mac/demo.png?raw=true)
 
 # 画图工具
 人家说意图胜千言，平常工作中也会接触到各种各样的画图软件，这里就将自己使用最多的几款介绍下
 
 ## 飞书画板
 因为平常记笔记什么的都是在飞书画板上，这应该是我用的最多也感觉最舒服的一款画图工具了
-
 
 ## excalidraw
 github地址: https://github.com/excalidraw/excalidraw
