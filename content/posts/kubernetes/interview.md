@@ -1,5 +1,10 @@
-
-常见面试题汇总
+---
+date : '2025-09-19T20:18:25+0800'
+draft : false
+title : '常见面试题汇总'
+tags : ["面试"]
+categories: ["面试"]
+---
 
 Q: 集群内部署的 prometheus 是怎么发现对应的监控的服务,比如 node-exporter 的,并采集到对应每个node的监控？  
 A: 现在数据上云之后 prometheus 的服务发现一般都利用了 servicemonitor 来进行动态发现, ServiceMonitor 就会找到对应 Service 资源的
