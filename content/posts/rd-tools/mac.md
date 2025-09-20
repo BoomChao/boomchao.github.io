@@ -42,7 +42,7 @@ categories: ["工具"]
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git golang python zsh-autosuggestions aliases alias-finder zsh-you-should-use docker)  
+plugins=(git golang python zsh-autosuggestions aliases alias-finder zsh-you-should-use docker zsh-syntax-highlighting)  
 ``` 
 4. 安装命令搜索器 [fzf](https://github.com/junegunn/fzf)   
 看看我的 shell 配置
