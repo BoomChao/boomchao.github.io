@@ -1,6 +1,6 @@
 ---
 date : '2025-09-23'
-lastmod: 2025-09-23
+lastmod: '2025-09-23'
 draft : false
 title : 'k8s-webhook'
 tags : ["kubernetes"]
