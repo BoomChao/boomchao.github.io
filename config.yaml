@@ -91,7 +91,10 @@ params:
   ShowRssButtonInSectionTermList: true
   ShowAllPagesInArchive: true
   ShowPageNums: true
-  ShowToc: true
+  
+  ShowToc: true # 显示目录 
+  TocOpen: true # 自动展开目录
+
   images: ["images/papermod-cover.png"]
   comments: true
   disableComments: false
