@@ -74,7 +74,7 @@ bool isZeroArray(vector<int>& nums, vector<vector<int>>& queries) {
 上面第二题的升级版本，这里query范围内降低的数值最大不能超过给定的值，要求返回使得数组变成 Zero-Array 所需操作的最小次数  
 解析： 
 还是按照上面的思路，这里需要遍历每个query参数来判断依次判断与nums[i]的差是多少  
-对每个 index:i，我们先计算 sum 和  
+对每个 index:i，我们先计算 sum 的和  
 检查是否 sum >= nums[i]，如果不满足，则继续遍历 query  
 答案如下：时间复杂度 O(n)   
 ```Go {linenos=true}
