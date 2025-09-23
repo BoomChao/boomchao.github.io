@@ -96,6 +96,11 @@ params:
   comments: true
   disableComments: false
   giscusTheme: preferred_color_scheme
+  ShowLastMod: true #显示文章更新时间
+  ShowWordCounts: true
+  ShowReadingTime: false
+
+
 
   busuanzi:
       enable: true
