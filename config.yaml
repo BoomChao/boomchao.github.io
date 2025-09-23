@@ -99,7 +99,7 @@ params:
   ShowLastMod: true #显示文章更新时间
   ShowWordCounts: true
   ShowReadingTime: false
-
+  DateFormat: "2006-01-02"
 
 
   busuanzi:
