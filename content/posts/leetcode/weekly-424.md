@@ -10,7 +10,7 @@ categories: ["Algorithm", "Leetcode"]
 [原题链接](https://leetcode.com/problems/make-array-elements-equal-to-zero/)  
 解析：
 首先如果这个数组是一个有效的数组，那么肯定0元素左边的所有元素的和和0元素右边所有元素的和的绝对差<=1  
-比如，下面这个有效数组
+比如，下面这个有效数组  
 ```bash 
 [1,0,2,0,3]
 index = 3
@@ -40,9 +40,9 @@ int countValidSelections(vector<int>& nums) {
 
 # 第二题: [Zero Array Transformation I]
 [原题链接](https://leetcode.com/problems/zero-array-transformation-i/description/)  
-解析：
-反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可
-比如
+解析：  
+反向思考，只要记录下 queries 区间内的元素间隔，叠加这个间隔之间的元素的值，判断是否大于原始数组即可   
+比如  
 ```bash
 nums = [4,3,2,1], queries = [[1,3],[0,2]]
 则刚开始是 [0,0,0,0]
@@ -71,12 +71,12 @@ bool isZeroArray(vector<int>& nums, vector<vector<int>>& queries) {
 
 # 第三题: [Zero Array Transformation II]
 [原题链接](https://leetcode.com/problems/zero-array-transformation-ii/)  
-上面第二题的升级版本，这里query范围内降低的数值最大不能超过给定的值，要求返回使得数组变成 Zero-Array 所需操作的最小次数
-解析：
-还是按照上面的思路，这里需要遍历每个query参数来判断依次判断与nums[i]的差是多少
-对每个 index:i，我们先计算 sum 和
-检查是否 sum >= nums[i]，如果不满足，则继续遍历 query
-答案如下：时间复杂度 O(n)
+上面第二题的升级版本，这里query范围内降低的数值最大不能超过给定的值，要求返回使得数组变成 Zero-Array 所需操作的最小次数  
+解析： 
+还是按照上面的思路，这里需要遍历每个query参数来判断依次判断与nums[i]的差是多少  
+对每个 index:i，我们先计算 sum 和  
+检查是否 sum >= nums[i]，如果不满足，则继续遍历 query  
+答案如下：时间复杂度 O(n)   
 ```Go {linenos=true}
 int minZeroArray(vector<int>& nums, vector<vector<int>>& queries) {
     int n = nums.size(), sum = 0, k = 0;
