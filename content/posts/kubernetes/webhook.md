@@ -86,7 +86,7 @@ webhooks:
 
 ## Mutate 配置
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/32d7bb75c4be45a69db6833832624716~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=5rTuhudEh5QAGvEKfbb3H4i0yBQ%3D)
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/code1.png?raw=true)
 
 这里配置了对应的污点的参数，任何一个pod创建出来其自身的pod参数都会带上对应的特定的污点计数
 
@@ -139,7 +139,7 @@ spec:
 
 该 pod 的标签上的 `acme.com/lifespan-requested` 的值为3，则理论上创建成功之后会增加到 14
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/250787d50df1428a837dfcd4f154a13e~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=AFupHWl3NgiuO0OjZ2gIaCTa9j4%3D)
+![image.png](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/tolerations.png?raw=true)
 
 查看pod上的污点事件发现确实是会增加到14为止
 
@@ -151,7 +151,7 @@ spec:
 
 这时候 webhook 的作用就来了，我们可以让请求到达我们的 hook-server，然后hook-server劫持到该请求后尝试修改再发送给api-server，前后对比简图如下
 
-![image.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/a3f9084b73a04e96bbab765a9a47b66f~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=8Wg%2F6OwA6ixQxM19gKGC85b2fRI%3D)
+![image.png](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/flow.png?raw=true)
 
 1.  其他资源上报给 API-Server 的请求会被 webhook 劫持；这里劫持是按照资源的 GVR 以及对应所执行的操作（比如CREATE、UPDATE、PATCH）进行实现的
 2.  Webhook 获取到请求之后，会将该请求分发给对应的 Service，Service 将该请求再分发给该Service底下具体的应用
@@ -162,7 +162,7 @@ spec:
 
 我们来做一个实际的功能，修改 node 的 allocatable 信息来做资源的超卖
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/bbb53dc6861e478dbf45d7eaae4e7c5c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=g8sUj%2BazekqBTCNQLUmhQUcFk9o%3D)
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/allocatable.png?raw=true)
 
 如果能够尝试将 allocatable 的值改大，那么不久意味着这个node上可以调度上去更多的pod（当未达到pod数量的最高限制之前）
 
@@ -188,7 +188,7 @@ rules:
 
 1.  计算出原始的 Capacity - Allocatable 的大小，这部分空间就是 reserverd 使用
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/088028e20442480fa193bd2e2d02cdd0~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=AhWI9Yuk3CKQ2NHhokKiXwzKJbY%3D)
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/cap.png?raw=true)
 
 如下面这个图所示
 
@@ -245,7 +245,7 @@ docker build -t simple-kubernetes-webhook:latest .
 
 然后将之前的 simple-kubernetes-webhook pod 删除重建
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/d16da76629ab4cddadc9c88c60fdaa7b~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=0TGg4ucTrR%2BWEqjlJGBzhNDDl5w%3D)
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/capacity.png?raw=true)
 
 可看到 node 层面这里的 Allocatable 以及 Capacity 均已经被我们调整过来了
 
@@ -279,8 +279,9 @@ spec:
 ```
 
 可看到也能部署成功
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/kgetpod.png?raw=true)
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/3206f80108ba4354863fbafe03cf23de~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=DT3v8VAcsCx5fsWTKH4gL%2FZE0w4%3D)
+
 
 我们删除掉 webhook 的配置，重启之前已经部署好的 nginx-pod
 
@@ -291,7 +292,7 @@ k delete pod nginx-deployment-74c556b6bc-vhkfv
 
 查看pod重建之后的状态
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/4461b7f26b794bd7b49f8a4cfc2fd9a3~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=DWjZatmSxU8gu7qUGKjtXclhXXo%3D)
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/node.png?raw=true)
 
 可发现如果不经超卖，则无法部署上去我们的大核心的pod
 
