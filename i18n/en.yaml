@@ -1,8 +1,8 @@
 - id: prev_page
-  translation: "Prev"
+  translation: "上一页"
 
 - id: next_page
-  translation: "Next"
+  translation: "下一页"
 
 - id: read_time
   translation:
@@ -15,13 +15,13 @@
     other: "{{ .Count }} words"
 
 - id: toc
-  translation: "Table of Contents"
+  translation: "文章目录"
 
 - id: translations
   translation: "Translations"
 
 - id: home
-  translation: "Home"
+  translation: "主页"
 
 - id: edit_post
   translation: "Edit"
