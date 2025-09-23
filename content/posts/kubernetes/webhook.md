@@ -20,11 +20,11 @@ k8s 里面的 webhook 基本就只有两个，一个是 [MutatingWebhook](https:
 
 MutatingAdmissionWebhook 和 ValidateAdmissionWebhook 各自作用位置如下
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/b02bfe4fb2194b9693a32845da527ae6~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=aZePIahadbiDgRQNEKTIpMZO2qQ%3D)
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/webhook-api.PNG?raw=true)
 
 具体流程如下
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/ed77f760419b4b9c8fb63c761e2f0a88~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=t%2FlnY9Orb5aLq2m%2FC14NxQDzV7Q%3D)
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/hook.PNG?raw=true)
 
 1.  先提交资源的请求（CREATE、UPDATE、PATCH等）给 API-Server
 2.  通过API-Server的认证和授权
@@ -80,7 +80,7 @@ webhooks:
 
 ## Validate 配置
 
-![](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/4c9db00a53614b8cb0bf23b89fbaf63c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiN5pWP5oSf55qE5bCP5pyd5ZCM5a2m:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNjE4MzU2ODEyODEwMjY5In0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1759202127&x-orig-sign=OcNQBkOX%2FWbr5TxlTRzo5r1DcmM%3D)
+![](https://github.com/BoomChao/boomchao.github.io/blob/main/content/posts/kubernetes/webhook/code.png?raw=true)
 
 这里配置如果pod的名称包含 offensive 则直接返回 error
 
