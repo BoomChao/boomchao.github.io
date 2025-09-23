@@ -97,8 +97,7 @@ params:
   disableComments: false
   giscusTheme: preferred_color_scheme
   ShowLastMod: true #显示文章更新时间
-  ShowWordCounts: true
-  ShowReadingTime: false
+  ShowWordCount: true
   DateFormat: "2006-01-02"
 
 
