@@ -96,7 +96,7 @@ params:
   comments: true
   disableComments: false
   giscusTheme: preferred_color_scheme
-  ShowWordCount: true
+  ShowWordCount: false
   DateFormat: "2006-01-02"
 
 
