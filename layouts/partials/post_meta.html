@@ -3,7 +3,7 @@
 {{- $scratch.Add "meta" (slice (printf "创建:&nbsp;<span title='%s'>%s</span>" (.Date) (.Date.Format (default "January 2, 2006" .Site.Params.DateFormat)))) }}
 {{- end }}
 
-{{- if (.Param "ShowLastMod") -}}
+<!-- {{- if (.Param "ShowLastMod") -}}
 {{- $scratch.Add "meta" (slice (printf "更新:&nbsp;%s" (.Lastmod.Format (.Site.Params.dateFormat | default "2006-01-02")))) }}
 {{- end }}
 
@@ -21,7 +21,7 @@
 
 {{- with ($scratch.Get "meta") }}
 {{- delimit . "&nbsp;|&nbsp;" -}}
-{{- end }}
+{{- end }} -->
 <!--
 {{- if (.Param "VisitCount") -}}
 {{- $scratch.Add "meta" (slice (printf "访问:&nbsp;<span id='%s'></span>" ("twikoo_visitors") )) }}
