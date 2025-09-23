@@ -298,7 +298,7 @@ k delete pod nginx-deployment-74c556b6bc-vhkfv
 
 # Q\&A
 
-## 怎么查看CVG?
+## 怎么查看GVR?
 
 参考这篇[文章](https://stackoverflow.com/questions/49396607/where-can-i-get-a-list-of-kubernetes-api-resources-and-subresources)
 
