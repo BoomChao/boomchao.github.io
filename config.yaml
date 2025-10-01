@@ -91,6 +91,8 @@ params:
   ShowRssButtonInSectionTermList: true
   ShowAllPagesInArchive: true
   ShowPageNums: true
+
+  fancybox: true
   
   ShowToc: true # 显示目录 
   TocOpen: true # 自动展开目录
