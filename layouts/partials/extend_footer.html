@@ -1,6 +1,70 @@
 {{- if .Site.Params.fancybox }}
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" aria-label="Close"></button>
+  <button class="lightbox-nav prev" aria-label="Previous">
+    <svg viewBox="0 0 16 16"><polyline points="10,2 4,8 10,14"/></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="" />
+  <button class="lightbox-nav next" aria-label="Next">
+    <svg viewBox="0 0 16 16"><polyline points="6,2 12,8 6,14"/></svg>
+  </button>
+  <span class="lightbox-counter" id="lightbox-counter"></span>
+</div>
 <script>
-  Fancybox.bind('[data-fancybox="gallery"]');
+(function() {
+  var overlay = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var counter = document.getElementById('lightbox-counter');
+  var images = [];
+  var currentIdx = 0;
+
+  document.querySelectorAll('.post-img-view').forEach(function(el, i) {
+    var img = el.querySelector('img');
+    if (!img) return;
+    images.push(img.getAttribute('src'));
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      currentIdx = images.indexOf(img.getAttribute('src'));
+      show(currentIdx);
+    });
+  });
+
+  function show(idx) {
+    if (idx < 0 || idx >= images.length) return;
+    currentIdx = idx;
+    lbImg.src = images[idx];
+    counter.textContent = (idx + 1) + ' / ' + images.length;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) close();
+  });
+
+  overlay.querySelector('.lightbox-close').addEventListener('click', close);
+
+  overlay.querySelector('.lightbox-nav.prev').addEventListener('click', function(e) {
+    e.stopPropagation();
+    show((currentIdx - 1 + images.length) % images.length);
+  });
+
+  overlay.querySelector('.lightbox-nav.next').addEventListener('click', function(e) {
+    e.stopPropagation();
+    show((currentIdx + 1) % images.length);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show((currentIdx - 1 + images.length) % images.length);
+    if (e.key === 'ArrowRight') show((currentIdx + 1) % images.length);
+  });
+})();
 </script>
 {{- end }}
