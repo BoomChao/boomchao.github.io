@@ -33,7 +33,7 @@
                         {{/* get id="xyz" */}}
                         {{- $id := index (findRE "(id=\"(.*?)\")" $header 9) 0 }}
 
-                        {{- /* strip id="" to leave xyz, no way to get regex capturing groups in hugo */ -}}
+                        {{- /* strip id="" to leave xyz */ -}}
                         {{- $cleanedID := replace (replace $id "id=\"" "") "\"" "" }}
                         {{- $header := replaceRE "<h[1-6].*?>((.|\n])+?)</h[1-6]>" "$1" $header -}}
 
@@ -43,7 +43,6 @@
                         {{- if gt $headerLevel $prevHeaderLevel -}}
                         {{- range seq $prevHeaderLevel (sub $headerLevel 1) -}}
                         <ul>
-                            {{/* the first should not be recorded */}}
                             {{- if ne $prevHeaderLevel . -}}
                             {{- $.Scratch.Add "bareul" . -}}
                             {{- end -}}
@@ -54,7 +53,6 @@
                             {{- range seq (sub $prevHeaderLevel 1) -1 $headerLevel -}}
                             {{- if in ($.Scratch.Get "bareul") . -}}
                         </ul>
-                        {{/* manually do pop item */}}
                         {{- $tmp := $.Scratch.Get "bareul" -}}
                         {{- $.Scratch.Delete "bareul" -}}
                         {{- $.Scratch.Set "bareul" slice}}
@@ -75,7 +73,6 @@
                         <a href="#{{- $cleanedID -}}" aria-label="{{- $header | plainify -}}">{{- $header | safeHTML -}}</a>
                         {{- end -}}
                         {{- end -}}
-                        <!-- {{- $firstHeaderLevel := len (seq (index (findRE "[1-6]" (index $headers 0) 1) 0)) -}} -->
                         {{- $firstHeaderLevel := $largest }}
                         {{- $lastHeaderLevel := len (seq (index (findRE "[1-6]" (index $headers (sub (len $headers) 1)) 1) 0)) }}
                     </li>
@@ -93,62 +90,136 @@
     </div>
 </aside>
 <script>
+(function () {
     let activeElement;
     let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
+    const tocContainer = document.getElementById('toc-container');
 
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         // Make the first header active
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
+    const CHEVRON_SVG = '<svg viewBox="0 0 10 10"><polyline points="3,1 7,5 3,9"/></svg>';
 
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
+    function initCollapsible() {
+        const items = tocContainer.querySelectorAll('.toc .inner li');
+        items.forEach(function (li) {
+            const childUl = li.querySelector(':scope > ul');
+            if (!childUl) return;
 
-    window.addEventListener('scroll', () => {
-        // Check if there is an object in the top half of the screen or keep the last item active
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
+            li.classList.add('has-children');
 
-        elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
+            const toggle = document.createElement('span');
+            toggle.className = 'toc-toggle';
+            toggle.innerHTML = CHEVRON_SVG;
 
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+            const link = li.querySelector(':scope > a');
+            if (link) link.appendChild(toggle);
 
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
+            childUl.classList.add('collapsed');
+            childUl.style.maxHeight = '0px';
 
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleSection(childUl, toggle);
+            });
+        });
+    }
+
+    function toggleSection(ul, toggle) {
+        if (ul.classList.contains('collapsed')) {
+            expandSection(ul, toggle);
         } else {
-            document.getElementById("toc-container").classList.remove("wide");
+            collapseSection(ul, toggle);
+        }
+    }
+
+    function expandSection(ul, toggle) {
+        ul.classList.remove('collapsed');
+        ul.style.maxHeight = ul.scrollHeight + 'px';
+        if (toggle) toggle.classList.add('expanded');
+        ul.addEventListener('transitionend', function handler() {
+            if (!ul.classList.contains('collapsed')) {
+                ul.style.maxHeight = 'none';
+            }
+            ul.removeEventListener('transitionend', handler);
+        });
+    }
+
+    function collapseSection(ul, toggle) {
+        ul.style.maxHeight = ul.scrollHeight + 'px';
+        ul.offsetHeight; // force reflow
+        ul.style.maxHeight = '0px';
+        ul.classList.add('collapsed');
+        if (toggle) toggle.classList.remove('expanded');
+    }
+
+    function expandToLink(link) {
+        let node = link.parentElement;
+        while (node && !node.classList.contains('inner')) {
+            if (node.tagName === 'UL' && node.classList.contains('collapsed')) {
+                const parentLi = node.parentElement;
+                const parentToggle = parentLi ? parentLi.querySelector(':scope > a > .toc-toggle') : null;
+                expandSection(node, parentToggle);
+            }
+            node = node.parentElement;
+        }
+    }
+
+    function setActive(el) {
+        const allLinks = tocContainer.querySelectorAll('.inner ul li a');
+        allLinks.forEach(function (a) { a.classList.remove('active'); });
+
+        const id = encodeURI(el.getAttribute('id')).toLowerCase();
+        const link = tocContainer.querySelector('.inner ul li a[href="#' + id + '"]');
+        if (link) {
+            link.classList.add('active');
+            expandToLink(link);
         }
     }
 
     function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
+        if (!element.getClientRects().length) return 0;
+        var rect = element.getBoundingClientRect();
+        var win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
     }
+
+    const mainWidth = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const tocWidth = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        var width = document.body.scrollWidth;
+        if (width - mainWidth - (tocWidth * 2) - (gap * 4) > 0) {
+            tocContainer.classList.add('wide');
+        } else {
+            tocContainer.classList.remove('wide');
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+        checkTocPosition();
+        initCollapsible();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        if (elements.length > 0) {
+            activeElement = elements[0];
+            setActive(activeElement);
+        }
+    });
+
+    window.addEventListener('resize', function () {
+        checkTocPosition();
+    });
+
+    window.addEventListener('scroll', function () {
+        if (!elements || elements.length === 0) return;
+
+        activeElement = Array.from(elements).find(function (element) {
+            var top = getOffsetTop(element) - window.pageYOffset;
+            return top > 0 && top < window.innerHeight / 2;
+        }) || activeElement;
+
+        setActive(activeElement);
+    });
+})();
 </script>
 {{- end }}

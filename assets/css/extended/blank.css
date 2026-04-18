@@ -4,6 +4,16 @@
     --toc-width: 300px;
 }
 
+/* ── TOC container (wide sidebar mode) ── */
+.toc-container.wide {
+    position: absolute;
+    height: 100%;
+    left: calc((var(--toc-width) + var(--gap)) * -1);
+    top: calc(var(--gap) * 2);
+    width: var(--toc-width);
+}
+
+/* ── TOC box ── */
 .toc {
     margin: 0 2px 40px 2px;
     border: 1px solid var(--border);
@@ -12,65 +22,202 @@
     padding: 0.4em;
 }
 
-.toc-container.wide {
-    position: absolute;
-    height: 100%;
-    border-right: 1px solid var(--border);
-    left: calc((var(--toc-width) + var(--gap)) * -1);
-    top: calc(var(--gap) * 2);
-    width: var(--toc-width);
-}
-
 .wide .toc {
     position: sticky;
     top: var(--gap);
-    border: unset;
-    background: unset;
+    border: none;
+    background: transparent;
     border-radius: unset;
     width: 100%;
-    margin: 0 2px 40px 2px;
+    margin: 0;
+    padding: 0;
 }
 
+/* ── Summary / title ── */
 .toc details summary {
-    cursor: zoom-in;
-    margin-inline-start: 20px;
-    padding: 12px 0;
+    cursor: pointer;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+}
+
+.toc details summary::-webkit-details-marker {
+    display: none;
+}
+
+.toc details summary::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid var(--primary);
+    border-bottom: 2px solid var(--primary);
+    transform: rotate(-45deg);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.toc details[open] summary::before {
+    transform: rotate(45deg);
 }
 
 .toc details[open] summary {
-    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+/* ── Inner content area ── */
+.toc .inner {
+    margin: 0;
+    padding: 0 0 8px 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
 }
 
 .toc-container.wide .toc .inner {
     margin: 0;
 }
 
-.active {
-    font-size: 110%;
-    font-weight: 600;
-}
-
+/* ── List resets ── */
 .toc ul {
-    list-style-type: circle;
-}
-
-.toc .inner {
-    margin: 0 0 0 20px;
-    padding: 0px 15px 15px 20px;
-    font-size: 16px;
-}
-
-.toc li ul {
-    margin-inline-start: calc(var(--gap) * 0.5);
-    list-style-type: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .toc li {
     list-style: none;
-    font-size: 0.95rem;
-    padding-bottom: 5px;
+    padding: 0;
+    margin: 0;
+}
+
+.toc li ul {
+    margin: 0;
+    padding-left: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+
+.toc li ul.collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+}
+
+.toc li ul:not(.collapsed) {
+    opacity: 1;
+}
+
+/* ── Links ── */
+.toc li a {
+    display: block;
+    padding: 4px 10px 4px 12px;
+    color: var(--secondary);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    border-radius: 0 4px 4px 0;
+    transition: all 0.15s ease;
+    font-size: 0.84rem;
+    line-height: 1.6;
+    word-break: break-word;
 }
 
 .toc li a:hover {
-    color: var(--secondary);
+    color: var(--primary);
+    background: var(--code-bg);
+    border-left-color: var(--secondary);
+}
+
+/* ── Active state ── */
+.toc li a.active {
+    color: var(--primary);
+    font-weight: 600;
+    border-left-color: var(--primary);
+    background: var(--code-bg);
+}
+
+/* ── Nested indentation via left padding ── */
+.toc > details > .inner > ul > li > a {
+    padding-left: 12px;
+}
+
+.toc > details > .inner > ul > li > ul > li > a {
+    padding-left: 26px;
+    font-size: 0.82rem;
+}
+
+.toc > details > .inner > ul > li > ul > li > ul > li > a {
+    padding-left: 40px;
+    font-size: 0.80rem;
+}
+
+.toc > details > .inner > ul > li > ul > li > ul > li > ul > li > a {
+    padding-left: 54px;
+    font-size: 0.78rem;
+}
+
+/* ── Toggle chevron for collapsible items ── */
+.toc li.has-children > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toc-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.15s ease;
+    margin-left: 4px;
+}
+
+.toc-toggle:hover {
+    background: var(--border);
+}
+
+.toc-toggle svg {
+    width: 10px;
+    height: 10px;
+    fill: none;
+    stroke: var(--secondary);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s ease;
+}
+
+.toc-toggle.expanded svg {
+    transform: rotate(90deg);
+}
+
+/* ── Scrollbar for long TOC in sidebar mode ── */
+.wide .toc .inner {
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.wide .toc .inner::-webkit-scrollbar {
+    width: 4px;
+}
+
+.wide .toc .inner::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.wide .toc .inner::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
 }
