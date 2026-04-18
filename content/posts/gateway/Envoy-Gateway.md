@@ -510,9 +510,9 @@ spec:
 
 其实非常好奇 envoy 的性能如何，查看官网的数据
 
-Envoy-Gateway 的性能如下 https://gateway.envoyproxy.io/tools/benchmark-report-explorer/
+Envoy-Gateway 的性能如下, [参考](https://gateway.envoyproxy.io/tools/benchmark-report-explorer/)
 
-但是 Envoy-Proxy 的性能并未得到明确的信息 https://www.envoyproxy.io/docs/envoy/latest/faq/performance/how\_fast\_is\_envoy
+但是 Envoy-Proxy 的性能并未得到明确的信息, [参考](https://www.envoyproxy.io/docs/envoy/latest/faq/performance/how_fast_is_envoy)
 
 ![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-7.png)
 
