@@ -1,17 +1,6 @@
 {{- if .Site.Params.fancybox }}
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js"></script>
 <script>
-  Fancybox.bind('[data-fancybox="gallery"]', {
-    Toolbar: {
-      display: {
-        left: [],
-        middle: ["prev", "infobar", "next"],
-        right: ["slideshow", "fullscreen", "thumbs", "close"],
-      },
-    },
-    Images: {
-      zoom: true,
-    },
-  });
+  Fancybox.bind('[data-fancybox="gallery"]');
 </script>
 {{- end }}
