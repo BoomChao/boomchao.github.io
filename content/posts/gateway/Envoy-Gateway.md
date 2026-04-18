@@ -101,13 +101,13 @@ eg-gateway-helm-leader-election-role   2025-11-17T12:05:31Z
 
 整个访问的架构如下
 
-![](images/Envoy-Gateway-image.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image.png)
 
 ## 资源架构
 
 资源架构解析如下
 
-![](images/Envoy-Gateway-image-1.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-1.png)
 
 ## CRD
 
@@ -227,7 +227,7 @@ kind: ConfigMap
 
 注意这个里面的 EnvoyGateway 不是一个 CRD，而是控制面的配置文件，可以当做是控制面的启动配置
 
-![](images/Envoy-Gateway-image-2.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-2.png)
 
 我们查看 envoyProxy 的所有CRD配置的话，也是没有这个 EnvoyGateway 的 CRD 的
 
@@ -290,7 +290,7 @@ spec:
 
 再来看数据面的副本数已经变成了我们设置的两个副本
 
-![](images/Envoy-Gateway-image-3.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-3.png)
 
 
 
@@ -340,7 +340,7 @@ spec:
 
 尝试访问多次就能得到如下报错，代表达到限流阈值
 
-![](images/Envoy-Gateway-image-4.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-4.png)
 
 
 
@@ -496,11 +496,11 @@ spec:
 
 直接访问报错
 
-![](images/Envoy-Gateway-image-5.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-5.png)
 
 加入 JWT 的 Token访问
 
-![](images/Envoy-Gateway-image-6.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-6.png)
 
 
 
@@ -514,7 +514,7 @@ Envoy-Gateway 的性能如下 https://gateway.envoyproxy.io/tools/benchmark-repo
 
 但是 Envoy-Proxy 的性能并未得到明确的信息 https://www.envoyproxy.io/docs/envoy/latest/faq/performance/how\_fast\_is\_envoy
 
-![](images/Envoy-Gateway-image-7.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-7.png)
 
 于是想实际压测一下到底这个组件能承受多少 QPS
 
@@ -524,7 +524,7 @@ Envoy-Gateway 的性能如下 https://gateway.envoyproxy.io/tools/benchmark-repo
 
 这里 vmsingle 运行不成功是因为 PVC 没有挂载到对应的 PV 里面，需要手动创建 PV
 
-![](images/Envoy-Gateway-image-8.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-8.png)
 
 ```yaml
 apiVersion: v1
@@ -544,7 +544,7 @@ spec:
 
 进入对应的 Grafana 看板
 
-![](images/Envoy-Gateway-image-9.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-9.png)
 
 其实已经内置好了很多看板供我们使用，但是这些都是集群自带的一些看板
 
@@ -558,11 +558,11 @@ spec:
 
 https://github.com/envoyproxy/gateway/tree/main/charts/gateway-addons-helm/dashboards
 
-![](images/Envoy-Gateway-image-10.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-10.png)
 
 直接复制导入到上一步我们部署的 Grafana 看板里面即可
 
-![](images/Envoy-Gateway-image-11.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-11.png)
 
 导入后可看到一个属于控制面，一个属于数据面
 
@@ -570,7 +570,7 @@ https://github.com/envoyproxy/gateway/tree/main/charts/gateway-addons-helm/dashb
 
 看板配好了，接下来配数据源以及采集参数配置
 
-![](images/Envoy-Gateway-image-12.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-12.png)
 
 我们部署的两个组件，控制面和数据面分别如上图
 
@@ -620,9 +620,9 @@ spec:
 
 看到如下两个监控看板均存在数据即可
 
-![](images/Envoy-Gateway-image-13.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-13.png)
 
-![](images/Envoy-Gateway-image-14.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-14.png)
 
 ## 压测准备
 
@@ -652,7 +652,7 @@ hey -n 100 -c 100 -m GET  -H "Content-Type: application/json"    http://10.100.3
 
 注意上面如果直接指定端口来测试，curl 虽然能通；但是 hey 可能会报错 404
 
-![](images/Envoy-Gateway-image-15.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-15.png)
 
 所有我们这里手动修改本机的 host 文件，让其解析到指定的 IP 上
 
@@ -666,7 +666,7 @@ hey -n 100 -c 100 -m GET  -H "Content-Type: application/json"    http://10.100.3
 hey -n 100 -c 10  http://www.example.com/get/
 ```
 
-![](images/Envoy-Gateway-image-16.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-16.png)
 
 ## 压测数据
 
@@ -725,7 +725,7 @@ Status code distribution:
 
 此时 QPS 大概是 1.67k
 
-![](images/Envoy-Gateway-image-17.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-17.png)
 
 
 
@@ -784,7 +784,7 @@ Status code distribution:
 
 此时 QPS 大概为 6k
 
-![](images/Envoy-Gateway-image-18.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-18.png)
 
 
 
@@ -844,7 +844,7 @@ Status code distribution:
 
 
 
-![](images/Envoy-Gateway-image-19.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-19.png)
 
 此时 QPS 能达到 13k
 
@@ -903,7 +903,7 @@ Status code distribution:
 
 可看到输出只有 100w，说明被限流
 
-![](images/Envoy-Gateway-image-20.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/gateway/images/Envoy-Gateway-image-20.png)
 
 查看 QPS，能达到 18.3k
 
