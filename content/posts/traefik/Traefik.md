@@ -30,11 +30,11 @@ h install traefik ./traefik -n traefik -f traefik/values.yaml
 
 查看安装的 CRD
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-image.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-image.png)
 
 查看应用
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-image-1.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-image-1.png)
 
 其实就一个deployment，没有其他模块
 
@@ -92,7 +92,7 @@ spec:
 
 已经暴露出了一个 dashboard 的 ingressroute，访问地址 http://dashboard.localhost/dashboard/
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-image-2.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-image-2.png)
 
 便能看到类似这样的展示信息
 
@@ -161,7 +161,7 @@ traefik   LoadBalancer   10.105.235.195   <pending>     80:31799/TCP,443:32037/T
 whoami    ClusterIP      10.96.42.170     <none>        80/TCP                       3m
 ```
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-image-3.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-image-3.png)
 
 因为测试环境没有 LoadBalancer 的 IP，我们访问 clusterip 通过指定 Host 的方式能够得到预期的输出
 
@@ -173,11 +173,11 @@ Traefik 支持两种部署方式
 
 第一种：对接 k8s 的 Gateway 资源，利用 GatewayClass ➕ Gateway ➕ HTTPRoute &#x20;
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-image-4.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-image-4.png)
 
 第二种：利用 Traefik 自带的 IngressRoute
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-diagram.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-diagram.png)
 
 区别显而言之，用 IngressRoute 会更加方便，相当于一个 IngressRoute 替换了上面 Gateway 的三个CRD
 
@@ -191,7 +191,7 @@ Traefik 支持两种部署方式
 
 整体链路如下
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-diagram-1.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-diagram-1.png)
 
 ## 会话保持
 
@@ -218,7 +218,7 @@ services:
 
 比如我现在访问
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-image-5.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-image-5.png)
 
 则会返回一个 Set-Cookie 的选项，下次请求直接指定这个 cookie 的 header 的选项，则能实现粘性会话
 
@@ -710,13 +710,13 @@ spec:
 
 测试不带 jwt 访问
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-image-6.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-image-6.png)
 
 直接提示没有 token
 
 带上 jwt 访问
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-image-7.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-image-7.png)
 
 访问成功
 
@@ -730,7 +730,7 @@ spec:
 
 那这里 forwardAuth 这个插件就派上用场了，基本流程如下
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-diagram-2.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-diagram-2.png)
 
 ```yaml
 # Forward authentication to example.com
@@ -786,7 +786,7 @@ spec:
 
 故意将 average 和 burst 设置的低一点，尝试请求接口，多请求几次就会有报错出现
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik%20%E8%A7%A3%E6%9E%90-image-8.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/traefik/images/Traefik-image-8.png)
 
 **源码解析**
 
