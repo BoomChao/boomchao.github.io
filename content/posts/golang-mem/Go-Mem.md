@@ -33,7 +33,7 @@ Go 内存架构如下
 
 所有的内存空间都由一个名为 runtime.heapArena 的二维矩阵进行管理
 
-![](images/Go-Mem-diagram.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/golang-mem/images/Go-Mem-diagram.png)
 
 基本逻辑如下：
 
@@ -61,7 +61,7 @@ type mspan struct {
 
 而 runtime.mSpanList 存储这个双向链表的头尾节点，用于线程缓存和中央缓存
 
-![](images/Go-Mem-diagram-1.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/golang-mem/images/Go-Mem-diagram-1.png)
 
 ### 线程缓存
 
@@ -69,7 +69,7 @@ type mspan struct {
 
 每个线程缓存有136个内存管理单元，存储在 alloc 内存块中。这些内存管理单元用于管理分配给线程的内存块。使用线程时，直接从缓存的内存管理单元中获取；可参考下图
 
-![](images/Go-Mem-diagram-2.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/golang-mem/images/Go-Mem-diagram-2.png)
 
 这些内存管理单元用于管理分配给线程的内存块。使用线程时，直接从缓存的内存管理单元中获取管理单元，满足内存分配需求
 
