@@ -6,7 +6,6 @@ title : 'Golang内存管理'
 tags : ["面试题"]
 categories: ["golang"]
 ---
-# Go 内存管理
 
 ## 计算机内存分布
 
