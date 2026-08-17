@@ -1,5 +1,5 @@
 ---
-date : '2026-08-17T21:00:10+08:00'
+date : '2025-08-17T21:00:10+08:00'
 draft : false
 title : '初识 VictoriaMetrics'
 tags : ["VictoriaMetrics", "云原生", "可观测性"]
