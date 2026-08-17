@@ -14,7 +14,7 @@ Q：什么是 series？又什么是 samples？
 
 A：看下面这个图，一目了然；形象解释了一条时序数据的基本组成
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-11.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-11.png)
 
 > 这里需要注意，`requests_total{path="/", code="200"}` and `requests_total{path="/", code="403"}` 这是两个不同的指标，因为 code 的 label 不一样
 
@@ -31,9 +31,9 @@ cardinality（也称为基数）就是指的 series 的数量，high cardinality
 流失率: sum(rate(vm_new_timeseries_created_total{}[1m]))
 ```
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-13.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-13.png)
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-14.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-14.png)
 
 对于 sample，其实就是 (Timestamp Value) 这种形式，对应抓取的指标如下
 
@@ -41,7 +41,7 @@ cardinality（也称为基数）就是指的 series 的数量，high cardinality
 sum(rate(vm_promscrape_scraped_samples_sum{}[1m]))
 ```
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-12.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-12.png)
 
 大概每秒抓取 79w 个 sample
 
@@ -107,15 +107,15 @@ vmpodscrape 是针对 pod 的采集配置，没有任何的健康检查机制，
 
 查看 down 掉的 target 指标，整个约 5k 左右的数量，而且是瞬间增加
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image.png)
 
 查看实际的超时指标，最高的超时数量甚至达到了 14k，这个对 vmagent 简直是灾难
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-1.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-1.png)
 
 实际生产过程中发现扩容 vmagent 的数量都不好使，因为这种情况本质上是并发打满了，默认的并发是 2 \* 当前的 CPU 核数，几个关键参数的作用如下图
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-2.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-2.png)
 
 上面这个图是针对 push 指标的场景，其实从这个图就可以看出，push 的写入方不应该是 vminsert，应该是过 vmagent 来 push，因为在这里可以做流控的策略
 
@@ -148,7 +148,7 @@ vmpodscrape 不确认 pod 的状态，只要是 pod 在集群存在就会进行�
 
 vmservicescrape  用的是 k8s 原生的 sd\_discovery 机制，我们查看原始 chart 包里面的定义
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-3.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-3.png)
 
 其实你会发现这里有三种类型，endpoints 和 endpointslices 就不说了，endpoints 已经过时
 
@@ -184,7 +184,7 @@ relabelConfigs:
 
 &#x20;vmselect 的工作位置如下
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-4.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-4.png)
 
 参考官网的这张图，你会发现 vmselect 其实就是上游的各个查询承接器，负责接收上游的比如 grafana、vmui、alerting 等的各种查询请求
 
@@ -204,11 +204,11 @@ relabelConfigs:
 
 比如，我下面这个云上的集群部署的两个 pod，我把 request 和 limit 的 CPU 都设置成 9 core
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-5.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-5.png)
 
 但是实际发现最大的可用并发数还是 32（单个最大是 16，下面曲线是求和就是 32），而不是 2\*9\*2 = 36
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-6.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-6.png)
 
 介绍如下几个关键指标代表 vmselect 是否过载
 
@@ -222,13 +222,13 @@ relabelConfigs:
 
 所以现在看这个开源的看板，就会发现红线就是最大并发数，蓝线就是当前处理的请求数
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-7.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-7.png)
 
 
 
 那这就引入另外一个问题：既然我的并发数默认是由我的 **副本数\*2\*核数** 决定的，那岂不是我的查询 QPS 永远不会超过这个数值了？
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-8.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-8.png)
 
 我们仔细看上面这两张图
 
@@ -246,7 +246,7 @@ relabelConfigs:
 
 高可用
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-9.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-9.png)
 
 正常来说 vminsert 都会进行双写来保证高可用，比如图中所示，那这样每个数据实际都会存储到两个 vmstorage 里面去，这样给查询带来一个问题，我 vmselect 查询岂不是会有重复数据？
 
@@ -274,7 +274,7 @@ vmselect 是这样解决的，首先查询肯定是从所有的 vmstorage 里面
 
 不得不又放出这张图如下
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-10.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-10.png)
 
 vm 其实对每个指标都有 canonical metric name，这个就是规范的度量名称；这个名称的组成就是metric name 和已经排过序的 labels 的组合，比如下面这两个指标
 
@@ -402,7 +402,7 @@ func (t *TSID) Less(b *TSID) bool {
 
 先回顾一下 prometheus 里面的[ job 和 instance 的概念](https://prometheus.io/docs/concepts/jobs_instances/)
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-15.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-15.png)
 
 但在 VictoriaMetrics 里并不真的只对应 `job` 和 `instance` 标签。它们实际上取的是 tag 排序后的第 1 个和第 2 个 tag 的值；假设有这些时间序列：
 
@@ -426,7 +426,7 @@ http_requests_total{job="web", instance="10.0.0.3:8080", method="GET"}
 
 明白上面的 TSID 的原理，现在看下面官方的blog的这张图
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-16.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-16.png)
 
 就能明白这个过程究竟是发生了些什么，怎么从 metric name  到 TSID.MetricID
 
@@ -440,7 +440,7 @@ http_requests_total{job="web", instance="10.0.0.3:8080", method="GET"}
 
 因为 vmstorage 其实是不存储 metric name 的，数据落盘到vmstorage之后存储的形式全部如下所示
 
-![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-17.png)
+![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-17.png)
 
 只存储 TSID 和属于这个 TSID 的时间范围的 samples&#x20;
 
@@ -448,11 +448,11 @@ http_requests_total{job="web", instance="10.0.0.3:8080", method="GET"}
 
 1. 我现在在 Grafana 上要查询 `sum_over_time(node_cpu_seconds_total{mode="idle"}[5m])`，那请求链路基本如下
 
-   ![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-18.png)
+   ![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-18.png)
 
 2. 请求先过 vmselect，vmselect 把聚合函数之外的内容丢给下游的 vmstorage 来做数据索取
 
-   ![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/victoria-metrics/vm/images/VictoriaMetrics-image-19.png)
+   ![](https://raw.githubusercontent.com/BoomChao/boomchao.github.io/main/content/posts/vm/images/VictoriaMetrics-image-19.png)
 
    Vmstorage 先利用 IndexDB 将 metric name 转化成 TSID（比如上图中的 60, 12, 32 等就是不同的 series对应的 TSID），然后再用 TSID 去查询对应的 Main Storage 里面的实际存储的 sample 数据，比如我们这边的时间范围就是当前时刻的\[5m]区间
 
