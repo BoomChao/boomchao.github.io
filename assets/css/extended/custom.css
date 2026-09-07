@@ -15,3 +15,62 @@ iframe {
 .entry-cover img {
     border: 1px solid var(--border);
 }
+
+/* Make the light/dark switch feel responsive instead of an instant icon swap. */
+body,
+.header,
+.main,
+.post-entry,
+.first-entry,
+.toc,
+code {
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+#theme-toggle {
+    display: inline-grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    padding: 0;
+    color: var(--primary);
+    border-radius: 50%;
+    transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+#theme-toggle:hover {
+    color: #e08a00;
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    transform: rotate(-10deg);
+}
+
+#theme-toggle:active {
+    transform: rotate(-10deg) scale(0.9);
+}
+
+#theme-toggle:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+#theme-toggle svg {
+    transition: transform 180ms ease, opacity 180ms ease;
+}
+
+body.dark #theme-toggle {
+    color: #f4c95d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .header,
+    .main,
+    .post-entry,
+    .first-entry,
+    .toc,
+    code,
+    #theme-toggle,
+    #theme-toggle svg {
+        transition: none;
+    }
+}

@@ -94,15 +94,25 @@
 
 {{- if (not site.Params.disableThemeToggle) }}
 <script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
+    (function () {
+        const toggle = document.getElementById("theme-toggle");
+        if (!toggle) return;
+
+        function updateToggleState() {
+            const isDark = document.body.classList.contains("dark");
+            const nextTheme = isDark ? "浅色" : "深色";
+            toggle.setAttribute("aria-label", `切换到${nextTheme}模式`);
+            toggle.setAttribute("title", `切换到${nextTheme}模式 (Alt + T)`);
+            toggle.setAttribute("aria-pressed", String(isDark));
         }
-    })
+
+        updateToggleState();
+        toggle.addEventListener("click", function () {
+            const isDark = document.body.classList.toggle("dark");
+            localStorage.setItem("pref-theme", isDark ? "dark" : "light");
+            updateToggleState();
+        });
+    }());
 
 </script>
 {{- end }}

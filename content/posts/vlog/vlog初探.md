@@ -1,5 +1,5 @@
 ---
-date : '2026-09-07T21:00:00+08:00'
+date : '2026-09-07T20:00:00+08:00'
 draft : false
 title : 'vlog初探'
 tags : ["VictoriaLogs", "云原生", "可观测性"]
