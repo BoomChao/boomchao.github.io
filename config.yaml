@@ -83,7 +83,7 @@ params:
   # disableThemeToggle: true
   ShowShareButtons: false
   ShowReadingTime: false
-  # disableSpecial1stPost: true
+  disableSpecial1stPost: true
   displayFullLangName: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
@@ -120,12 +120,6 @@ params:
         url: archives
       - name: Tags
         url: tags
-
-  homeInfoParams:
-    Title: "欢迎来到我的主站"
-    Content: >
-      📖 主要用于记录我的一些学习心得以及工作中的一些感悟!   </br>
-      👋 希望通过这个能交到更多有趣的热爱技术的小伙伴!  </br>
 
   socialIcons:
     - name: github
