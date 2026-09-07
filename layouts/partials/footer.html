@@ -107,8 +107,11 @@
         }
 
         updateToggleState();
-        toggle.addEventListener("click", function () {
-            const isDark = document.body.classList.toggle("dark");
+        toggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            const isDark = !document.body.classList.contains("dark");
+            document.body.classList.toggle("dark", isDark);
+            document.documentElement.classList.toggle("dark", isDark);
             localStorage.setItem("pref-theme", isDark ? "dark" : "light");
             updateToggleState();
         });

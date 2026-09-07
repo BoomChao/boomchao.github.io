@@ -34,7 +34,7 @@ languages:
         - name: 🏡 首页
           url: /
           weight: 4
-        - name: 📈 归档
+        - name: 🗂️ 归档
           url: archives
           weight: 5
         - name: 🔍 搜索
@@ -144,11 +144,11 @@ params:
   
   assets:
     disableHLJS: true
-    favicon: "favicon.png"
-    favicon16x16: "favicon.png"
-    favicon32x32: "favicon.png"
-    apple_touch_icon: "favicon.png"
-    safari_pinned_tab: "favicon.png"
+    favicon: "favicon.svg"
+    favicon16x16: "favicon.svg"
+    favicon32x32: "favicon.svg"
+    apple_touch_icon: "favicon.svg"
+    safari_pinned_tab: "favicon.svg"
 
   # giscus:
   #   repo: "boomchao/boomchao.github.io"
