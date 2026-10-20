@@ -13,7 +13,7 @@ on:
       hugoVersion:
         description: "Hugo Version"
         required: false
-        default: "0.146.0"
+        default: "0.161.1"
 
 concurrency:
   group: "pages"
